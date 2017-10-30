@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yccz.dao.UserMapper">
+<select id="list" resultType="User">
+select *from userinfo;
+</select>
+<delete id="delete" parameterType="int">
+delete from userinfo where id=#{id}
+</delete>
+<insert id="add" parameterType="User">
+insert into userinfo(name,sex,age,telephone,email,specialty,school,address)values(#{name},#{sex},#{age},#{telephone},#{email},#{specialty},#{school},#{address})
+</insert>
+<select id="listuser" parameterType="int" resultType="User">
+select *from userinfo where id=#{id}
+</select>
+
+<update id="update" parameterType="User">
+update userinfo set name=#{name},sex=#{sex},telephone=#{telephone},email=#{email},specialty=#{specialty},school=#{school},address=#{address} where id=#{id};
+</update>
+</mapper>

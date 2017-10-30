@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<constant name="struts.locale" value="zh_CN"/>
+<constant name="struts.i18n.encoding" value="gbk"/>	
+<package name="helloword"  extends="struts-default">
+<action name="index" class="UserAction" method="index">
+<result name="index">/index.jsp</result>
+<result name="success" type="redirectAction">index</result>
+</action>
+<action name="userToAdd" class="UserAction" method="addUser">
+<result name="addUser">/addUser.jsp</result>
+</action>
+<action name="userAdd" class="UserAction" method="userAdd">
+<result name="success" type="redirectAction">index</result>
+<result name="error">/addUser.jsp</result>
+</action>
+<action name="userDelete" class="UserAction" method="userDelete">
+<result name="success" type="redirectAction">index</result>
+<result name="error">/addUser.jsp</result>
+</action>
+
+<action name="userToUpdate" class="UserAction" method="userToUpdate">
+	<result name="toUpdate">/updateUser.jsp</result>
+</action>
+
+<action name="userUpdate" class="UserAction" method="userUpdate">
+<result name="success" type="redirectAction">index</result>
+<result name="error" type="redirectAction">userToUpdate</result>
+</action>
+</package>
+
+</struts>
